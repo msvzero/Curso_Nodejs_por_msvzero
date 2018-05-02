@@ -1,0 +1,25 @@
+{
+  "name": "basicexpresswebsite",
+  "version": "1.0.0",
+  "description": "Web basica utilizando node y express",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/msvzero/node_essential_by_msvzero.git"
+  },
+  "author": "Martin Serratti-msvzero",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/msvzero/node_essential_by_msvzero/issues"
+  },
+  "homepage": "https://github.com/msvzero/node_essential_by_msvzero#readme",
+  "dependencies": {
+    "body-parser": "*",
+    "express": "*",
+    "pug": "*",
+    "nodemailer": "*"
+  }
+}
