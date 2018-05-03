@@ -9,6 +9,10 @@ const nodemailer = require('nodemailer');
 
 //Inicializamos nuestra app
 const app = express();
+//We need to tell Pug which folder the template files will be in
+app.set('views', path.join(__dirname, 'views'));
+//We also need to set the view engine
+app.set('view engine', 'pug');
 
 //Definimos los middleware que vamos a utilizar
 app.use(bodyParser.json());
@@ -22,5 +26,6 @@ app.listen(3000, () => {
 //Creamos la rutas
 app.get('/', (request, response) => {
     //console.log("Hello World");
-    response.send('Hello World - Bienvenido!!');
+    //response.send('<h1>Hello World - Bienvenido!!</h1>');
+    response.render('index');
 })
