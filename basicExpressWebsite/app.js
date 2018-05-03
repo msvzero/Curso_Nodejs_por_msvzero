@@ -35,4 +35,38 @@ app.get('/', (request, response) => {
 
 app.get('/about', (request, response) => {
     response.render('about');
+});
+
+app.get('/contact', (request, response) => {
+    response.render('contact')
+});
+
+app.post('/contact/send', (request, response) => {
+   // console.log('Message send');
+   var mailOptions = {
+        from: 'Bruno Garay <neurapp60@gmail.com>',
+        to: 'msvzero@gmail.com',
+        subject: 'Website Submission',
+        text: 'You have a submission with the following details... Name: '+request.body.name+'Email: '+request.body.email+'Message: '+request.body.message,
+        html: '<p>You have a submission with the following details...</p><ul><li>'+request.body.name+'</li><li>Email: '+request.body.email+'</li><li>Message: '+request.body.message+'</li></ul>'
+    };
+
+   var transporter = nodemailer.createTransport({
+       //Se debe configurar la cuenta en google para permitir acceso de aplicaciones menos seguras.
+       //Si cuenta con verificacion de dos pasos se debe deshabilitar
+       service: 'gmail',
+       auth:{
+           user:'ejemplo@gmail.com',//debe ser real
+           pass: '123456'// debe ser real
+       }
+   });
+   transporter.sendMail(mailOptions, function(error, info){
+    if(error){
+      console.log(error);
+      res.redirect('/');
+    } else {
+      console.log('Message Sent: '+info.response);
+      res.redirect('/');
+    }
+  });
 })
