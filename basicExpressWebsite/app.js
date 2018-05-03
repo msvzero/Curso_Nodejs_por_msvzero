@@ -26,9 +26,13 @@ app.listen(3000, () => {
     console.log("Server is running on PORT 3000")
 })
 
-//Creamos la rutas
+//Creamos las rutas
 app.get('/', (request, response) => {
     //console.log("Hello World");
     //response.send('<h1>Hello World - Bienvenido!!</h1>');
-    response.render('index');
+    response.render('index',{title:'Welcome'});
+});
+
+app.get('/about', (request, response) => {
+    response.render('about');
 })
