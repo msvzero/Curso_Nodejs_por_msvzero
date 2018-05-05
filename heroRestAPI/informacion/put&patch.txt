@@ -1,0 +1,12 @@
+put 
+if i want to change myfirst name then send put request for Update
+
+{ "first": "Nazmul", "last": "hasan" } 
+
+but here has one problem is put request that when i want to send put request i have to send all two parameters 
+is first and last so it is mandatory to send all value again
+
+patch :
+patch request says . only send the data which one you want to update and it won't effecting or changing other
+data .So no need to send all value again, just i want to update my first name so i need to send only first 
+name to update.
